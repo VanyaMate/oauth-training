@@ -39,8 +39,8 @@ passport.deserializeUser((user, cb) => {
 
 passport.use(
     new GoogleStrategy({
-        clientID    : '402234590089-m23th95g25ah29e8hb4bbjgdnv91qv1b.apps.googleusercontent.com',
-        clientSecret: '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',
+        clientID    : process.env.GOOGLE_CLIENT_ID,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         callbackURL : 'http://localhost:3000/auth/google/callback',
     }, (accessToken: string, refreshToken: string, profile: Profile, cb: VerifyCallback) => {
         console.log(profile);
